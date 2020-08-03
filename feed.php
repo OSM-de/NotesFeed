@@ -35,6 +35,7 @@
 		$creator = (!is_array($n->comments->comment) ? $n->comments->comment->user : $n->comments->comment[0]->user);
 		if ($creator == "") $creator = "<Anonymous>";
 		$desc    = (!is_array($n->comments->comment) ? $n->comments->comment->text : $n->comments->comment[0]->text);
+		$desc    = str_replace("  ", " ", str_replace("\n", " ", $desc))
 
 		$html = "";
 		$last_date = "";
