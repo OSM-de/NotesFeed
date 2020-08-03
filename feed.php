@@ -1,4 +1,9 @@
 <?php
+	if (strpos($_SERVER["HTTP_ACCEPT"], "application/rss+xml") !== FALSE)
+		header("Content-Type: application/rss+xml");
+	else
+		header("Content-Type: application/xml");
+
 	$user = $_GET["user"];
 
 	$notesContent = file_get_contents("https://api.openstreetmap.org/api/0.6/notes/search?display_name=".urlencode($user)."&closed=7");
